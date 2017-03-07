@@ -1,0 +1,57 @@
+<h2>Mis Clientes</h2>
+
+
+<table  class="table table-hover">
+    <th>cedula</th>
+    <th>nombre</th>
+    <th>correo</th>
+    <th>telefono</th>
+    <th colspan="2" class="text-center">Acciones</th>
+
+    <tr *ngFor="let cliente of listaclientes,let j=index"
+    [class.selected]="cliente === selectedCliente"
+    (click)="onSelect(cliente)">
+
+        <td>{{cliente.cedula}}</td>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.telefono}}</td>
+        <td><input (click)="gotoDetail(j)"value="VerDetalles" class="btn btn-success btn-sm"></td>
+        <td>
+                <input type="submit" (click)="borrar(j)" class="btn btn-sm btn-danger" value="Eliminar">
+             
+        </td>
+      
+    </tr>
+       
+</table>
+
+<form *ngIf="DetalleClienteForm">
+  
+  
+<h2>Detalle Del Cliente</h2>
+  <p>Aqui puedes editar tu información</p>
+  <div>
+    <label>Cedula: {{listaclientes[i].cedula}} </label>
+  </div>
+  <div>
+    <label>nombre: {{listaclientes[i].nombre}} </label>
+  </div>
+  <div>
+    <label>Apellido: {{listaclientes[i].apellido}} </label>
+  </div>
+    <div>
+   
+    <label>correo: </label>
+    <input [(ngModel)]="listaclientes[i].email" name="correo"  />
+  </div>
+  <div>
+    <label>telefono: </label>
+    <input [(ngModel)]="listaclientes[i].telefono" name="telefono"  />
+  </div>
+  
+        
+     
+  <button  (click)="onClick()" class="btn btn-success btn-sm">Aceptar</button>
+ 
+</form>
