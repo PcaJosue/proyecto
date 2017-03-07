@@ -16,7 +16,7 @@ export class ProductosComponent implements OnInit {
 listaProductos: ProductoModel[];
 listaClientes: ClienteModel[];
 listaPedidos: PedidoModel[]=[];
-
+catalogoform=true;
 selectedProducto: ProductoModel;
 detallePedidoForm: boolean;
 productoNumber:number;
@@ -52,7 +52,7 @@ onSelect(producto: ProductoModel): void {
 Confirmar(id:number){
 this.detallePedidoForm=true;
 this.PedidoProductoNumber=id;
-
+this.catalogoform=false;
 }
 
 goToCarrito(id:string, fecha:String){
@@ -65,6 +65,7 @@ this.listaPedidos.push(new PedidoModel(client,produc,fecha));
 console.log(this.listaPedidos);
 this.detallePedidoForm=false;
 this.PedidoProductoNumber=0;
+this.catalogoform=true;
 }
 
 
@@ -75,6 +76,7 @@ getCliente(id: string): ClienteModel {
     }
 cancelar():void{
 this.detallePedidoForm=false;
+this.detallePedidoForm=true;
 }
 }
 

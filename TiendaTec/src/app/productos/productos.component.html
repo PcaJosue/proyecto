@@ -39,7 +39,7 @@
 
 <h2>Catalogo</h2>
 
-
+<div *ngIf="catalogoform">           
 <table  class="table table-hover">
     <th>nombre</th>
     <th>categoria</th>
@@ -64,7 +64,7 @@
     </tr>
        
 </table>
-
+</div>
 
 <form *ngIf="detallePedidoForm">
     <h2>Confirma enviar al carrito</h2>
